@@ -1,8 +1,8 @@
-from PyQt6.QtWidgets import QApplication, QWidget
+from PyQt6.QtWidgets import QApplication, QWidget, QPushButton
 
 app = QApplication([])
 
-window = QWidget()
+window = QPushButton()
 window.show()
 
 app.exec() # Starts the event loop
