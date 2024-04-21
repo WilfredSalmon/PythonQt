@@ -10,7 +10,8 @@ class Main_Window(QMainWindow):
         button = QPushButton("Press Here.")
         self.setCentralWidget(button)
 
-        self.setFixedSize(QSize(500,200))
+        self.setMaximumSize(QSize(1000,400))
+        self.setMinimumSize(QSize(400,200))
 
 app = QApplication([])
 
