@@ -7,15 +7,22 @@ class Main_Window(QMainWindow):
         
         self.setWindowTitle("A different window!")
         
-        button = QPushButton("Press Me!")
-        button.setCheckable(True)
-        button.clicked.connect(self.button_pressed)
-        button.clicked.connect(self.print_button_state)
+        self.button = QPushButton("Press Me!")
+        self.button.setCheckable(True)
+        self.button.clicked.connect(self.button_pressed)
+        self.button.clicked.connect(self.print_button_state)
+        self.button.released.connect(self.button_released)
 
-        self.setCentralWidget(button)
+        self.setCentralWidget(self.button)
+
+    def button_released(self):
+        print("button released, now", "pressed" if self.button.isChecked() else "not pressed")
 
     def button_pressed(self):
         print("button pressed!")
+        self.button.setEnabled(False)
+        self.button.setText("Pressed!")
+        self.setWindowTitle("Now this app is boring")
 
     def print_button_state(self, checked):
         print("Button is:", "pressed" if checked else "not pressed")
