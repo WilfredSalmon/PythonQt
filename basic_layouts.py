@@ -52,20 +52,14 @@ class Main_Window(QMainWindow):
 
         for i in range(num_colours):
             grid_layout.addWidget(Colour_Block(colours[i]), i, i)
-
-        self.outer_layout = QStackedLayout()
-        self.layout_index = 0
-        self.outer_layout.addWidget(cycle_widget)
-        self.outer_layout.addWidget(grid_widget)
         
-        container = QWidget()
-        container.setLayout(self.outer_layout)
+        container = QTabWidget()
+        container.addTab(cycle_widget, "cycle")
+        container.addTab(grid_widget, "diagonal")
+        container.setMovable(True)
+        container.setTabPosition(QTabWidget.TabPosition.South)
         
         self.setCentralWidget(container)
-
-    def mouseReleaseEvent(self, _):
-        self.layout_index ^= 1
-        self.outer_layout.setCurrentIndex(self.layout_index)
 
 app = QApplication([])
 window = Main_Window()
