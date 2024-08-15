@@ -105,23 +105,6 @@ class Main_Window(QtWidgets.QMainWindow):
     def pen_size_changed(self, size):
         self.canvas.set_pen_size(size)
 
-    def mouseMoveEvent(self, e):
-        if self.last_point is None:
-            self.last_point = e.position()
-            return
-
-        canvas = self.label.pixmap()
-        painter = QtGui.QPainter(canvas)
-        painter.drawLine(self.last_point, e.position())
-        painter.end()
-        self.label.setPixmap(canvas)
-
-        self.last_point = e.position()
-    
-    def mouseReleaseEvent(self, _):
-        self.last_x = None
-        self.last_y = None
-
 app = QtWidgets.QApplication([])
 window = Main_Window()
 window.show()
