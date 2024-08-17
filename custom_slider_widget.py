@@ -160,9 +160,12 @@ class Labelled_Animated_Toggle(QtWidgets.QWidget):
         self.setLayout(layout)
 
 animation_curves_to_test = {
+    "Linear" : QtCore.QEasingCurve.Type.Linear,
     "InOutCubic" : QtCore.QEasingCurve.Type.InOutCubic,
     "OutCubic" : QtCore.QEasingCurve.Type.OutCubic,
     "InOutQuad" : QtCore.QEasingCurve.Type.InOutQuad,
+    "OutBounce" : QtCore.QEasingCurve.Type.OutBounce,
+    "OutElastic" : QtCore.QEasingCurve.Type.OutElastic
 }
 
 class Main_Window(QtWidgets.QMainWindow):
